@@ -1,11 +1,17 @@
-﻿using LearnCollections;
+﻿using System.IO;
+using System.Linq;
 using System;
-
-class program
+public class Program
 {
     static void Main()
     {
-        Collections runner = new Collections();
-        runner.LearnDictionary();
+      string countriestext = File.ReadAllText("Countries.txt");
+      string[] countries=countriestext.Split("\r\n");
+
+      var countrieswithinitial = countries.Select(x => x.StartsWith("N")).Select(x => x);
+      foreach(var country in countrieswithinitial)
+      {
+          Console.WriteLine(country);
+      }
     }
 }
