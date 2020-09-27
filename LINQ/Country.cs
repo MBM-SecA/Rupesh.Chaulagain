@@ -1,3 +1,4 @@
+using System;
 public class Country
 {
     public string Name {get ; set;}
@@ -6,7 +7,7 @@ public class Country
     public double Area {get ; set;}
     public long Population {get; set;}
 
-    public DateTime IndependenceDay {get; get; }
+    public DateTime IndependenceDay {get; set; }
     public Country(string n, string c, double a,long p , DateTime i=default)
     {
         Name = n;
