@@ -80,3 +80,18 @@ namespace LINQ
     }
 }
 
+//    HttpClient client = new HttpClient();
+//             Stopwatch stopwatch = Stopwatch.StartNew();
+//             var google = client.GetStringAsync("www.google.com").Result;
+//             var microsoft = client.GetStringAsync("www.microsoft.com").Result;
+//             var yahoo = client.GetStringAsync("www.yahoo.com").Result;
+//             var git = client.GetStringAsync("www.github.com/MBM-SecA/Sushan.ghimire").Result;
+//             Console.WriteLine($"It took {stopwatch.ElapsedMilliseconds} ms");
+
+//             stopwatch.Restart();
+//             var g = await client.GetStringAsync("www.google.com");
+//             var m = await client.GetStringAsync("www.microsoft.com");
+//             var y = await client.GetStringAsync("www.yahoo.com");
+//             var gi =await client.GetStringAsync("www.github.com/MBM-SecA/Sushan.ghimire");
+//             Console.WriteLine($"It took {stopwatch.ElapsedMilliseconds} ms");
+
