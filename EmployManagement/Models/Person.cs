@@ -4,13 +4,13 @@ using System.ComponentModel.DataAnnotations;
 
 public class Person
 {
-    [Required]
-    [Display(Name="First Name")]
-    
-    public string FirstName{ get; set; }
-    
-    [Required,Display(Name="Last Name")]        
-    public string SurName{ get; set; } 
+     [Key]
+    public int Id{get; set;}
+    [Display(Name = "First Name")]
+    [Required (ErrorMessage = "First Name required")]
+    public string FirstName { get; set; }
+    [Required(ErrorMessage = "Last Name required")]
+    public string SurName { get; set; }
     
     public string Address{ get; set; }
 
