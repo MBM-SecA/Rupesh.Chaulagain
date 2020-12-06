@@ -1,0 +1,38 @@
+@model List<Department>
+@{
+    ViewData["Titlephrase"] = "List";
+}
+
+<h1>All Departments (@Model.Count)</h1>
+<table class="table background-dark">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Department Name</th>
+      <th scope="col">Code</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date of Establishmnt</th>
+     
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @{int i=0;}
+     @foreach (var department in Model)
+     {
+       <tr scope ="row">
+         <td>@(++i)</td>
+         
+        <td><a href="/employee/detail?Id=@department.Id">@department.Name</a></td>
+         
+         
+         <td>@department.Code</td>
+         <td>@department.Description</td>
+         <td>@department.StartDate</td>
+         <td><a class="btn btn-outline-primary" href="Department/Edit?id=@department.Id">Edit</a> </td>
+         <td><a class="btn btn-outline-primary" href="Department/Delete?id=@department.Id">Delete</a> </td>
+       </tr>
+         
+     }
+  </tbody>
+</table>

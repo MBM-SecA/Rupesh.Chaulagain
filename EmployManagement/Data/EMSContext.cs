@@ -8,4 +8,6 @@ public class EMSContext: DbContext
     }
 
     public DbSet<Person> People {get; set;}
+
+    public DbSet<Department> Departments {get; set;}
 }
