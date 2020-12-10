@@ -8,14 +8,39 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployManagement.Migrations
 {
     [DbContext(typeof(EMSContext))]
-    [Migration("20201129053631_InitialCreateSqlite")]
-    partial class InitialCreateSqlite
+    [Migration("20201208062141_Initialmigrate")]
+    partial class Initialmigrate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.10");
+
+            modelBuilder.Entity("Department", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Departments");
+                });
 
             modelBuilder.Entity("Person", b =>
                 {
@@ -25,6 +50,9 @@ namespace EmployManagement.Migrations
 
                     b.Property<string>("Address")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -42,7 +70,18 @@ namespace EmployManagement.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("DepartmentId");
+
                     b.ToTable("People");
+                });
+
+            modelBuilder.Entity("Person", b =>
+                {
+                    b.HasOne("Department", "Department")
+                        .WithMany("People")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

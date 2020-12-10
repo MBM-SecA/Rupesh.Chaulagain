@@ -1,0 +1,13 @@
+@model Department
+@{
+    ViewData["Titlephrase"]=@Model.Name;
+}
+<h1>Detail For Employee  <a class="btn btn-outline-primary" href="/employee/index" role="button">Go Back</a></h1>
+
+<ul class="list-group">
+<li class="list-group-item">Department Name: @Model.Name</li>
+<li class="list-group-item">Code: @Model.Code</li>
+<li class="list-group-item">Description: @Model.Description</li>
+<li class="list-group-item">Start Date: @Model.StartDate</li>
+
+</ul>

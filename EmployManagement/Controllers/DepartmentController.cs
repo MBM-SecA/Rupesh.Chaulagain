@@ -61,6 +61,16 @@ public class DepartmentController : Controller
 
         return RedirectToAction(nameof(Index));
     }
+     public ActionResult Detail([FromQuery]int id)
+    {  
+       //var  employees = db.People.ToList();
+        //Person employee= employees.FirstOrDefault(x=>x.Id==id);
+        //return View(employee);
+        var depart = db.Departments.Find(id);
+        return View(depart);
+        
+    }
+
 
 
    
